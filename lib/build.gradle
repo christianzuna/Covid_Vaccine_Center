@@ -12,35 +12,25 @@ plugins {
     id 'war'
 }
 
-    apply from: 'https://raw.github.com/gretty-gradle-plugin/gretty/master/pluginScripts/gretty.plugin'
+    // apply from: 'https://raw.github.com/gretty-gradle-plugin/gretty/master/pluginScripts/gretty.plugin'
 
 repositories {
-    // Use JCenter for resolving dependencies.
     mavenCentral()
 }
 
 dependencies {
-    // Use JUnit Jupiter API for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
-
-    // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 
-    // This dependency is used by the application.
-    // implementation 'com.google.guava:guava:29.0-jre'
     implementation 'org.postgresql:postgresql:42.2.19.jre7'
 
-    // implementation 'org.apache.logging.log4j:log4j-api:2.14.1'
-    // implementation 'org.apache.logging.log4j:log4j-core:2.14.1'
     implementation 'javax.servlet:javax.servlet-api:4.0.1'
 }
 
 application {
-    // Define the main class for the application.
     mainClass = 'project0.App'
 }
 
 tasks.named('test') {
-    // Use junit platform for unit tests.
     useJUnitPlatform()
 }
