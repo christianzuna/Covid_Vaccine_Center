@@ -8,8 +8,7 @@ public class Employee {
     private String email;
     private String pass; 
     
-    public Employee(int id, String fname, String lname, int age, String email, String pass) {
-        this.id = id; 
+    public Employee(String fname, String lname, int age, String email, String pass) {
         this.fname = fname; 
         this.lname = lname;
         this.age = age; 
@@ -17,12 +16,21 @@ public class Employee {
         this.pass = pass; 
     }
 
-    public int getId() {
-        return id;
+    public Employee(int id, String fname, String lname, int age, String email, String pass){
+        this.id = id; 
+        this.fname = fname;
+        this.lname = lname;
+        this.age = age; 
+        this.email = email; 
+        this.pass = pass; 
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Employee(int id, String fname, String lname, int age, String email) {
+        this.id = id; 
+        this.fname = fname;
+        this.lname = lname;
+        this.age = age;
+        this.email = email;
     }
 
     public String getFname() {
@@ -67,8 +75,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee [age=" + age + ", email=" + email + ", fname=" + fname + ", id=" + id + ", lname=" + lname
-                + ", pass=" + pass + "]";
+        return "Employee: " + fname + ", " + lname + ", " + age + ", " + email + ", " + pass + ", " + id;
     }
-    
 }
