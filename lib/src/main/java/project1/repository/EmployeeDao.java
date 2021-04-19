@@ -9,8 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import project1.Dao;
-import project1.Employee;
+import project1.model.Employee;
 
 public class EmployeeDao implements Dao<Employee>{
 

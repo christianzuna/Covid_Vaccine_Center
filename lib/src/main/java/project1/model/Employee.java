@@ -1,4 +1,4 @@
-package project1;
+package project1.model;
 
 public class Employee {
     private int id; 

@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Covid Center</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Welcome Page</title>
 </head>
 <body>
-    <h1>Simple Example</h1>
+    <h1>Welcome to Covid Center app</h1>
 
-    <br>
-    
-    <form action = "Login" method="POST"> 
-        <table>
-            <tr>
-                <td>Name:</td>
-                <td><input type="text" name="userName"></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input type="password" name="userPass"></td>
-            </tr>
-        </table>
-        <button type="submit">Click me!</button>
-    </form>
-
-    <script src="main.js"></script>
+    <div>
+        <h2>Login</h2>
+        <div>
+            <form action="Login" method="POST">
+                User Name: <input type="text" name="userName">
+                <br>
+                Password: <input type="password" name="userPass">
+                <br>
+                <p>
+                    <button type="submit">Submit</button>
+                </p>
+            </form>
+        </div>
+        <br>
+        <div>
+            <a href="/lib/CreateUser.html">Create User</a>
+        </div>
+    </div>
 </body>
 </html>

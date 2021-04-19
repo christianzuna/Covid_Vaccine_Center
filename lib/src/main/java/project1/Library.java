@@ -3,6 +3,7 @@ package project1;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,17 +17,26 @@ public class Library extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        PrintWriter pw = resp.getWriter(); 
-
         resp.setContentType("text/html");
-        String user = req.getParameter("userName"); 
-        String pass = req.getParameter("userPass"); 
-                
-        if(user.equals("christian") && pass.equals("tumacho")) {
-            pw.println("Login Success...!");
-        } else {
-            pw.println("Login Failed...!"); 
+        PrintWriter out = resp.getWriter(); 
+
+        String n = req.getParameter("userName"); 
+        String p = req.getParameter("userPass");
+        
+
+        if (n.equals("employee") && p.equals("bro")) {
+            RequestDispatcher rd = req.getRequestDispatcher("/ProfileE");
+            rd.forward(req, resp);
+        } else if (n.equals("patient") && p.equals("bro")) {
+            RequestDispatcher rd = req.getRequestDispatcher("/ProfileP");
+            rd.forward(req, resp);
         }
-        pw.close();
+        else {
+            out.println("Sorry UserName or Password Error!");
+            out.println("<hr>");
+            RequestDispatcher rd = req.getRequestDispatcher("/index.html"); 
+            rd.include(req, resp);
+        }
+        out.close();
     }
 }
