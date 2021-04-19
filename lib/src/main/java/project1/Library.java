@@ -1,46 +1,32 @@
 package project1;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
-import org.apache.catalina.Context;
-import org.apache.catalina.LifecycleException;
-import org.apache.catalina.WebResourceRoot;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.webresources.DirResourceSet;
-import org.apache.catalina.webresources.StandardRoot;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+//this is like servlet-mapping on my web.xml file that I was suppossed to setup :(, this must match with my html-form where the attribute "action ="
+@WebServlet("/Login")
+public class Library extends HttpServlet{
 
-public class Library {
-    public static void main(String[] args) throws LifecycleException {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        // Tomcat server = new Tomcat();
+        PrintWriter pw = resp.getWriter(); 
 
-        // server.getConnector();
-        // server.setPort(8080);
-
-        // Context context = server.addWebapp("/api", new File("lib/src/main/webapp").getAbsolutePath());
-        // WebResourceRoot resources = new StandardRoot(context);
-        // resources.addPreResources(new DirResourceSet(
-        //     resources,
-        //     "/WEB-INF/classes",
-        //     new File("lib/build/classes/java").getAbsolutePath(),
-        //     "/"
-        // ));
-        // server.addServlet("/api", "peopleServlet", new HttpServlet(){
-        //    @Override
-        //    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-        //            throws ServletException, IOException {
-        //        resp.getWriter().println("hello from peopleServlet!");
-        //    } 
-        // });
-        // context.addServletMappingDecoded("/people", "peopleServlet");
-        // server.start();
-        // server.getServer().await();
-
+        resp.setContentType("text/html");
+        String user = req.getParameter("userName"); 
+        String pass = req.getParameter("userPass"); 
+                
+        if(user.equals("christian") && pass.equals("tumacho")) {
+            pw.println("Login Success...!");
+        } else {
+            pw.println("Login Failed...!"); 
+        }
+        pw.close();
     }
 }

@@ -8,24 +8,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>COVID CENTER</h1>
+    <h1>Simple Example</h1>
 
     <br>
     
-    <h1>Enter your username:</h1>
-    <form action="post" method="sourceServlet">
-        first name: <input name="fname">
-        <br>
-        last name: <input name="lname">
-        <br>
-        age: <input name="age">
-        <br>
-        email: <input name="email">
-        <br>
-        set password: <input type="password" name="pass">
-        <br>
-        <input type="submit" value="send" name="submitButton">
-
+    <form action = "Login" method="POST"> 
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="userName"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="userPass"></td>
+            </tr>
+        </table>
+        <button type="submit">Click me!</button>
     </form>
 
     <script src="main.js"></script>
