@@ -1,14 +1,10 @@
 package project1;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
+import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 //this is like servlet-mapping on my web.xml file that I was suppossed to setup :(, this must match with my html-form where the attribute "action ="
 @WebServlet("/Login")
@@ -23,8 +19,11 @@ public class Library extends HttpServlet{
         String n = req.getParameter("userName"); 
         String p = req.getParameter("userPass");
         
+        HttpSession session = req.getSession();
 
         if (n.equals("employee") && p.equals("bro")) {
+            session.setAttribute("uName", n);
+            session.setAttribute("uPass", p);
             RequestDispatcher rd = req.getRequestDispatcher("/ProfileE");
             rd.forward(req, resp);
         } else if (n.equals("patient") && p.equals("bro")) {
