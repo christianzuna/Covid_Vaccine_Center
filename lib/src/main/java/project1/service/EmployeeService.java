@@ -26,4 +26,32 @@ public class EmployeeService extends HttpServlet{
         out.println("<p>My password is " + myPass + "</p>");
         out.println("<p>My session id is: " + session.getId()); 
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        PrintWriter out = resp.getWriter();
+
+        String fn = req.getParameter("userFname");
+        String ln = req.getParameter("userLname");
+        String ua = req.getParameter("userAge");
+        String ue = req.getParameter("userName");
+        String up = req.getParameter("userPass");
+
+        out.println("My first name is: " + fn);
+        out.println("<br>");
+        out.println("My last name is " + ln);
+        out.println("<br>");
+        out.println("My age is: " + ua);
+        out.println("<br>");
+        out.println("My username is: " + ue);
+        out.println("<br>");
+        out.println("My password is: " + up);
+
+        out.println("Successfully created!");
+        out.println("Please Login");
+
+        req.getRequestDispatcher("/index.html").forward(req, resp); 
+
+    }
 }

@@ -24,5 +24,7 @@ public class PatientService extends HttpServlet{
         out.println("<h1>This is my session</h1>");
         out.println("<p>My username is: " + myName + "</p>"); 
         out.println("<p>My password is " + myPass + "</p>");
+        out.println("<p>My session id is: " + session.getId()); 
+
     }
 }

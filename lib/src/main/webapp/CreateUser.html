@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
+    <title>Create User</title>
 </head>
 <body>
-    <h1>Welcome to Covid Center app</h1>
-
     <div>
-        <h2>Login</h2>
+        <h1>Create a profile</h1>
         <div>
             <form action="Login" method="POST">
-                Email: <input type="text" name="userName">
+                First Name: <input type="text" name="userFname">
+                <br>
+                Last Name: <input type="text" name="userLname">
+                <br>
+                Age: <input type="text" name="userAge">
+                <br>
+                Email: <input type="email" name="userName">
                 <br>
                 Password: <input type="password" name="userPass">
                 <br>
-                <p>
+                <a href="/index.html">
                     <button type="submit">Submit</button>
-                </p>
+                </a>
             </form>
-        </div>
-        <br>
-        <div>
-            <a href="/lib/CreateUser.html">Create User</a>
         </div>
     </div>
 </body>
