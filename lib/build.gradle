@@ -13,7 +13,8 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 
     implementation 'javax.servlet:javax.servlet-api:4.0.1'
-
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+    
     implementation 'org.postgresql:postgresql:42.2.19.jre7'
 
 }

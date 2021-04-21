@@ -2,20 +2,13 @@ package project1.model;
 
 public class Employee {
     private int id; 
+    
     private String fname; 
     private String lname; 
     private int age; 
     private String email;
     private String pass; 
     
-    public Employee(String fname, String lname, int age, String email, String pass) {
-        this.fname = fname; 
-        this.lname = lname;
-        this.age = age; 
-        this.email = email; 
-        this.pass = pass; 
-    }
-
     public Employee(int id, String fname, String lname, int age, String email, String pass){
         this.id = id; 
         this.fname = fname;
@@ -24,13 +17,20 @@ public class Employee {
         this.email = email; 
         this.pass = pass; 
     }
-
-    public Employee(int id, String fname, String lname, int age, String email) {
-        this.id = id; 
+    public Employee(String fname, String lname, int age, String email, String pass){
         this.fname = fname;
         this.lname = lname;
-        this.age = age;
-        this.email = email;
+        this.age = age; 
+        this.email = email; 
+        this.pass = pass; 
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFname() {
@@ -75,6 +75,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee: " + fname + ", " + lname + ", " + age + ", " + email + ", " + pass + ", " + id;
+        return "Employee: " + id + ", " + fname + ", " + lname + ", " + age + ", " + email + ", " + pass;
     }
 }

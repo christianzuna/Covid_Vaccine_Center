@@ -1,70 +1,39 @@
 package project1;
 
 import java.io.*;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.servlet.*;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import project1.model.Employee;
+import project1.repository.EmployeeDao;
 
 //this is like servlet-mapping on my web.xml file that I was suppossed to setup :(, this must match with my html-form where the attribute "action ="
 @WebServlet("/Login")
 public class Library extends HttpServlet{
 
+    public Connection connection; 
+
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
-        resp.setContentType("text/html");
-        PrintWriter out = resp.getWriter(); 
+    protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        HttpSession session = req.getSession();
+        EmployeeDao eDao = new EmployeeDao(); 
+        List<Employee> emp = new ArrayList<>();  
+        emp = eDao.getAll(); 
 
-        String n = req.getParameter("userName"); 
-        String p = req.getParameter("userPass");
-        
-        do {
-            if (n.equals("employee@gmail.com") && p.equals("bro")) {
-                session.setAttribute("uName", n);
-                session.setAttribute("uPass", p);
-                
-                RequestDispatcher rd = req.getRequestDispatcher("/ProfileE");
-                rd.forward(req, resp);
-            } else if (n.equals("patient@gmail.com") && p.equals("bro")) {
-                session.setAttribute("uName", n);
-                session.setAttribute("uPass", p);
-    
-                RequestDispatcher rd = req.getRequestDispatcher("/ProfileP");
-                rd.forward(req, resp);
-            }
-            else {
-                out.println("Sorry UserName or Password Error!");
-                out.println("<hr>");
-                RequestDispatcher rd = req.getRequestDispatcher("/index.html"); 
-                rd.include(req, resp);
-            }
-            out.close();
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = mapper.writeValueAsString(emp);
 
-        } while (n!=null & p!=null);
 
-        
+        resp.setContentType("application/json");
+        resp.getWriter().println(jsonString);
     }
-
-    // @Override
-    // protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    //     resp.setContentType("text/html");
-    //     PrintWriter out = resp.getWriter(); 
-
-    //     String n = req.getParameter("userName"); 
-    //     String p = req.getParameter("userPass");
-
-    //     if(n == null && p == null) {
-    //         RequestDispatcher rd = req.getRequestDispatcher("/index.html"); 
-    //         rd.include(req, resp);
-    //     } else {
-    //         out.println("User Created!");
-    //         out.println("<hr>");
-    //         RequestDispatcher rd = req.getRequestDispatcher("/index.html"); 
-    //         rd.include(req, resp);
-    //     }
-    //     out.close();
-    // }
 }
