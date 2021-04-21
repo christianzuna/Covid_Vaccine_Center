@@ -100,6 +100,29 @@ public class EmployeeDao implements Dao<Employee> {
 
             if (preparedStatement.executeUpdate() > 0) {
                 return true;
+
+            }
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean validate(String userName, String userPass) {
+        Connection connection;
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "SELECT emp_id, fname, lname, age, email, pass FROM employees WHERE email=? AND pass=?");
+
+            preparedStatement.setString(1, userName);
+            preparedStatement.setString(2, userPass);
+
+            ResultSet rSet = preparedStatement.executeQuery();
+            while (rSet.next()) {
+                Employee temp = new Employee(rSet.getInt("emp_id"), rSet.getString("fname"), rSet.getString("lname"),
+                        rSet.getInt("age"), rSet.getString("email"), rSet.getString("pass"));
+                return true;
             }
         } catch (SQLException e1) {
             e1.printStackTrace();

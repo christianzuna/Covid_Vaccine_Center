@@ -8,5 +8,4 @@ public interface Dao <E>{
     List<E> getAll();  
     boolean update(E e); 
     boolean Delete(E e);
-    
 }

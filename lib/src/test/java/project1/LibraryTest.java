@@ -14,13 +14,15 @@ class LibraryTest {
 
     public static void main(String[] args) {
      
-        // Employee e = new Employee("elena", "daniel", 45, "eda@bro", "duh");
-        // Employee e2 = new Employee(5, "elena");
+        // // Employee e = new Employee("elena", "daniel", 45, "eda@bro", "duh");
+        // // Employee e2 = new Employee(5, "elena");
         EmployeeDao eDao = new EmployeeDao(); 
 
-        System.out.println(eDao.getAll());
-        // eDao.insert(e);
-        // eDao.Delete(e);
-        // eDao.update(e2);
+        // System.out.println(eDao.getAll());
+        // // eDao.insert(e);
+        // // eDao.Delete(e);
+        // // eDao.update(e2);
+
+        eDao.validate("eda@na", "dada");
     }
 }
