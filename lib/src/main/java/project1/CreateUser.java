@@ -35,5 +35,4 @@ public class CreateUser extends HttpServlet {
 
         pDao.insert(new Patient(userFname, userLname, userAge, userName, userPass));
     }
-
 }
