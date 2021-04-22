@@ -20,14 +20,15 @@ public class EmployeeService extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().println("welcome to ProfileE, this is the EmployeeService servlet doing a doPost!");
 
-        // PatientDao pDao = new PatientDao();
-        // List<Patient> pat = new ArrayList<>();
-        // pat = pDao.getAll();
+        //in ProfileE (employee) I'm supposed to see my all my patients, thus I invoke patientDao instances
+        PatientDao pDao = new PatientDao();
+        List<Patient> pat = new ArrayList<>();
+        pat = pDao.getAll();
 
-        // ObjectMapper mapper = new ObjectMapper();
-        // String jsonString = mapper.writeValueAsString(pat);
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = mapper.writeValueAsString(pat);
 
-        // resp.setContentType("application/json");
-        // resp.getWriter().println(jsonString);
+        resp.setContentType("application/json");
+        resp.getWriter().println(jsonString);
     }
 }

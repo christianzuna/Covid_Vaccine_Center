@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +27,6 @@ public class CreateAdmin extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EmployeeDao eDao = new EmployeeDao();
 
-        resp.getWriter().println("hi there, this is the CreateEmployee Servlet doing a doPost!");
-
         String userFname = req.getParameter("userFname");
         String userLname = req.getParameter("userLname");
         int userAge = Integer.parseInt(req.getParameter("userAge"));
@@ -35,5 +34,11 @@ public class CreateAdmin extends HttpServlet {
         String userPass = req.getParameter("userPass");
 
         eDao.insert(new Employee(userFname, userLname, userAge, userName, userPass));
+
+        resp.setContentType("text/html");
+        resp.getWriter().println("hi there, this is the CreateEmployee Servlet doing a doPost!");
+
+        RequestDispatcher rq = req.getRequestDispatcher("/index.html");
+        rq.include(req, resp);
     }
 }

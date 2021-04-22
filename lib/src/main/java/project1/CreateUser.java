@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,8 +26,6 @@ public class CreateUser extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PatientDao pDao = new PatientDao();
-
-        resp.getWriter().println("hey there! this is the CreateEmployee Servlet!!");
         
         String userFname = req.getParameter("userFname");
         String userLname = req.getParameter("userLname");
@@ -35,5 +34,11 @@ public class CreateUser extends HttpServlet {
         String userPass = req.getParameter("userPass");
 
         pDao.insert(new Patient(userFname, userLname, userAge, userName, userPass));
+
+        resp.setContentType("text/html");
+        resp.getWriter().println("hey there! this is the CreateEmployee Servlet!!");
+
+        RequestDispatcher rq = req.getRequestDispatcher("/index.html");
+        rq.include(req, resp);
     }
 }
