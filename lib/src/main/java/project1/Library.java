@@ -38,6 +38,8 @@ public class Library extends HttpServlet{
         if(!emp.isEmpty()) {
             resp.getWriter().println("got something!");
             resp.getWriter().println(emp);
+            RequestDispatcher rq = req.getRequestDispatcher("/ProfileE"); 
+            rq.forward(req, resp);
         }
         else {
             resp.setContentType("text/html");
