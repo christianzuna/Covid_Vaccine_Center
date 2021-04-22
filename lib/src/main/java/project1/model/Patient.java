@@ -16,6 +16,13 @@ public class Patient {
         this.email = email; 
         this.pass = pass; 
     }
+    public Patient(String fname, String lname, int age, String email, String pass) {
+        this.fname = fname; 
+        this.lname = lname; 
+        this.age = age; 
+        this.email = email; 
+        this.pass = pass; 
+    }
     
     public int getId() {
         return id;

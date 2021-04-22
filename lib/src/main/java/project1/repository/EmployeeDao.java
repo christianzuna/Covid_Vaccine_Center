@@ -11,13 +11,13 @@ import java.util.List;
 
 import project1.model.Employee;
 
-public class EmployeeDao implements Dao<Employee> {
+public class EmployeeDao /*implements Dao<Employee>*/ {
 
     public String url = "jdbc:postgresql://localhost:5432/postgres";
     public String user = "postgres";
     public String password = "password";
 
-    @Override
+    // @Override
     public boolean insert(Employee e) {
 
         try {
@@ -41,7 +41,7 @@ public class EmployeeDao implements Dao<Employee> {
         return false;
     }
 
-    @Override
+    // @Override
     public List<Employee> getAll() {
         List<Employee> list = new ArrayList<>();
         Connection connection;
@@ -61,7 +61,7 @@ public class EmployeeDao implements Dao<Employee> {
         return list;
     }
 
-    @Override
+    // @Override
     public boolean update(Employee e) {
         Connection connection;
 
@@ -86,7 +86,7 @@ public class EmployeeDao implements Dao<Employee> {
         return false;
     }
 
-    @Override
+    // @Override
     public boolean Delete(Employee e) {
         Connection connection;
 
