@@ -18,7 +18,7 @@ public class EmployeeService extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().println("welcome to ProfileE, this is the EmployeeService servlet doing a doPost!");
+        // resp.getWriter().println("welcome to ProfileE, this is the EmployeeService servlet doing a doPost!");
 
         //in ProfileE (employee) I'm supposed to see my all my patients, thus I invoke patientDao instances
         PatientDao pDao = new PatientDao();
@@ -27,8 +27,13 @@ public class EmployeeService extends HttpServlet{
 
         ObjectMapper mapper = new ObjectMapper();
         String jsonString = mapper.writeValueAsString(pat);
+        // resp.setContentType("application/json");
+        // resp.getWriter().println(jsonString);
 
-        resp.setContentType("application/json");
-        resp.getWriter().println(jsonString);
+        resp.setContentType("text/html");
+
+
+        RequestDispatcher rq = req.getRequestDispatcher("/homePage.html");
+        rq.include(req, resp);
     }
 }
