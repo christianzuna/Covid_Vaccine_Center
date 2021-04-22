@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!-- <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Create Employee</title>
 </head>
 <body>
-
-    <!-- i'll send this to a servlet so it saves it in my jdbc | preferably a patient-->
-    <div> 
+    <div>
         <p>
-            <h1>Create an Account to Request your Vaccine</h1>
+            <h1>Please Enter Employee Information</h1>
         </p>
-        <form action="CreatePatient" method="POST">
+        <form action="CreateEmployee" method="post">
             First Name: <input type="text" name="userFname">
             <br>
             Last Name: <input type="text" name="userLname">
@@ -27,11 +25,6 @@
                 <button type="submit">Submit</button>
             </p>
         </form>
-    </div>
-
-    <!-- this will help me create a new Employee -->
-    <div>
-        <h2><a href="/lib/createAdmin.html">I am a new Employee</a></h2>
     </div>
 </body>
 </html>
