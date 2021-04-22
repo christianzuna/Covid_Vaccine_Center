@@ -33,5 +33,19 @@ class LibraryTest {
         // pDao.Delete(new Patient("Carlos", "largo", 43, "carlos@pat", "pat"));
         // System.out.println(pDao.validate("ana@yahoo", "yahoo"));
 
+        LibraryTest obj = new LibraryTest(); 
+        String bro = "bro@patient";
+
+        obj.isEmpOrPat(bro);
+
+         
     }
+
+    public void isEmpOrPat (String userName) {
+        String temp = userName.substring(userName.length()-7, userName.length()); 
+         
+        System.out.println(temp.equals("patient")); 
+        // System.out.println(temp);
+         return; 
+     }
 }

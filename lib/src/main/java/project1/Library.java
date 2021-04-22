@@ -13,67 +13,67 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import project1.model.Employee;
+import project1.model.Patient;
 import project1.repository.EmployeeDao;
+import project1.repository.PatientDao;
 
 //this is like servlet-mapping on my web.xml file that I was suppossed to setup :(, this must match with my html-form where the attribute "action ="
 @WebServlet("/Login")
-public class Library extends HttpServlet{
+public class Library extends HttpServlet {
 
-    public Connection connection; 
+    public Connection connection;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        EmployeeDao eDao = new EmployeeDao(); 
+        Library obj = new Library();
+        PatientDao pDao = new PatientDao();
+        EmployeeDao eDao = new EmployeeDao();
 
-        String userName = req.getParameter("userName"); 
-        String userPass = req.getParameter("userPass"); 
+        String userName = req.getParameter("userName");
+        String userPass = req.getParameter("userPass");
 
-        List<Employee> emp = new ArrayList<>();  
-        emp = eDao.validate(userName, userPass);
+        if (obj.isPat(userName)) {
+            List<Patient> pat = new ArrayList<>();
+            pat = pDao.validate(userName, userPass);
 
-        if(!emp.isEmpty()) {
-            resp.getWriter().println("got something!");
-            resp.getWriter().println(emp);
-            RequestDispatcher rq = req.getRequestDispatcher("/ProfileE"); 
-            rq.forward(req, resp);
-        }
-        else {
+            if (!pat.isEmpty()) {
+                RequestDispatcher rq = req.getRequestDispatcher("/ProfileP");
+                rq.forward(req, resp);
+            }
+        } else if (obj.isEmp(userName)) {
+            List<Employee> emp = new ArrayList<>();
+            emp = eDao.validate(userName, userPass);
+
+            if (!emp.isEmpty()) {
+                RequestDispatcher rq = req.getRequestDispatcher("/ProfileE");
+                rq.forward(req, resp);
+            }
+        } else {
             resp.setContentType("text/html");
             resp.getWriter().println("Sorry wrong username or password...");
             RequestDispatcher rq = req.getRequestDispatcher("/index.html");
             rq.include(req, resp);
         }
-     
+
+    }
+    // it checks if it is a patient
+    public boolean isPat(String userName) {
+        String temp = userName.substring(userName.length() - 7, userName.length());
+
+        if (temp.equals("patient")) {
+            return true;
+        } else
+            return false;
     }
 
-// here i'm getting info from the jbdc
+    // it checks if it is an employee
+    public boolean isEmp(String userName) {
+        String temp = userName.substring(userName.length() - 8, userName.length());
 
-    // @Override
-    // protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-    //     EmployeeDao eDao = new EmployeeDao(); 
-    //     List<Employee> emp = new ArrayList<>();  
-    //     emp = eDao.getAll(); 
-
-    //     ObjectMapper mapper = new ObjectMapper();
-    //     String jsonString = mapper.writeValueAsString(emp);
-
-
-    //     resp.setContentType("application/json");
-    //     resp.getWriter().println(jsonString);
-    // }
-
-    // @Override
-    // protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    //     // EmployeeDao eDao = new EmployeeDao(); 
-    //     // List<Employee> emp = new ArrayList<>();  
-
-    //     // emp = eDao.validate("admin@admin", "admin");
-    //     // doPost(req, resp);
-    //     // RequestDispatcher rq = req.getRequestDispatcher("/ProfileE");
-    //     // rq.forward(req, resp);
-
-        
-    // }
+        if (temp.equals("employee")) {
+            return true;
+        }
+        return false;
+    }
 }

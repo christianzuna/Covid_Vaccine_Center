@@ -22,6 +22,10 @@ CREATE TABLE appointment (
     employee_id integer not null references employees(emp_id)
 );
 
-INSERT INTO employees (fname, lname, age, email, pass) VALUES ('admin', 'admin', 0, 'admin@admin', 'admin');
-INSERT INTO employees (fname, lname, age, email, pass) VALUES ('employee', 'employee', 12, 'employee@admin', 'admin');
+INSERT INTO employees (fname, lname, age, email, pass) VALUES ('admin', 'admin', 0, 'admin@employee', 'admin');
+INSERT INTO employees (fname, lname, age, email, pass) VALUES ('employee', 'employee', 12, 'employee@employee', 'admin');
+INSERT INTO employees (fname, lname, age, email, pass) VALUES ('rodolfo', 'largo', 22, 'rod@employee', 'rodolfo');
+
 INSERT INTO patients (fname, lname, age, email, pass) VALUES ('patient', 'patient', 0, 'patient@patient', 'patient');
+INSERT INTO patients (fname, lname, age, email, pass) VALUES ('elmo', 'pat', 20, 'elmo@patient', 'elmo');
+INSERT INTO patients (fname, lname, age, email, pass) VALUES ('elena', 'garcia', 30, 'elena@patient', 'nana');
