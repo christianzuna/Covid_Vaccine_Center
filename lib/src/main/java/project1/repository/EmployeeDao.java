@@ -108,8 +108,9 @@ public class EmployeeDao implements Dao<Employee> {
         return false;
     }
 
-    public boolean validate(String userName, String userPass) {
+    public List<Employee> validate(String userName, String userPass) {
         Connection connection;
+        List<Employee> list = new ArrayList<>();
         try {
             connection = DriverManager.getConnection(url, user, password);
             PreparedStatement preparedStatement = connection.prepareStatement(
@@ -122,11 +123,11 @@ public class EmployeeDao implements Dao<Employee> {
             while (rSet.next()) {
                 Employee temp = new Employee(rSet.getInt("emp_id"), rSet.getString("fname"), rSet.getString("lname"),
                         rSet.getInt("age"), rSet.getString("email"), rSet.getString("pass"));
-                return true;
+                list.add(temp);
             }
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
-        return false;
+        return list; 
     }
 }

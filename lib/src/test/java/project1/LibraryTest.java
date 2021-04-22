@@ -23,6 +23,5 @@ class LibraryTest {
         // // eDao.Delete(e);
         // // eDao.update(e2);
 
-        eDao.validate("eda@na", "dada");
     }
 }
