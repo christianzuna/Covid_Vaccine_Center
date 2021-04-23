@@ -22,10 +22,42 @@ CREATE TABLE appointment (
     employee_id integer not null references employees(emp_id)
 );
 
-INSERT INTO employees (fname, lname, age, email, pass) VALUES ('admin', 'admin', 0, 'employee@employee', 'employee');
-INSERT INTO employees (fname, lname, age, email, pass) VALUES ('employee', 'employee', 12, 'emp@employee', 'admin');
-INSERT INTO employees (fname, lname, age, email, pass) VALUES ('rodolfo', 'largo', 22, 'rod@employee', 'rodolfo');
+INSERT INTO employees (fname, lname, age, email, pass) VALUES ('employee', 'employee', 12, 'employee@employee', 'employee');
+INSERT INTO employees (fname, lname, age, email, pass) VALUES ('admin', 'admin', 0, 'admin@employee', 'employee');
+INSERT INTO employees (fname, lname, age, email, pass) VALUES ('rodolfo', 'largo', 22, 'rod@employee', 'rod');
+INSERT INTO employees (fname, lname, age, email, pass) VALUES ('juan', 'mendes', 22, 'juan@employee', 'juan');
 
 INSERT INTO patients (fname, lname, age, email, pass) VALUES ('patient', 'patient', 0, 'patient@patient', 'patient');
 INSERT INTO patients (fname, lname, age, email, pass) VALUES ('elmo', 'pat', 20, 'elmo@patient', 'elmo');
-INSERT INTO patients (fname, lname, age, email, pass) VALUES ('elena', 'garcia', 30, 'elena@patient', 'nana');
+INSERT INTO patients (fname, lname, age, email, pass) VALUES ('jess', 'daniels', 20, 'jess@patient', 'jess');
+INSERT INTO patients (fname, lname, age, email, pass) VALUES ('elena', 'garcia', 30, 'elena@patient', 'elena');
+
+INSERT INTO appointment (patient_id, employee_id) VALUES (1,1);
+INSERT INTO appointment (patient_id, employee_id) VALUES (1,2);
+INSERT INTO appointment (patient_id, employee_id) VALUES (1,3);
+INSERT INTO appointment (patient_id, employee_id) VALUES (2,1);
+INSERT INTO appointment (patient_id, employee_id) VALUES (2,2);
+INSERT INTO appointment (patient_id, employee_id) VALUES (2,3);
+INSERT INTO appointment (patient_id, employee_id) VALUES (3,1);
+INSERT INTO appointment (patient_id, employee_id) VALUES (3,2);
+INSERT INTO appointment (patient_id, employee_id) VALUES (3,3);
+
+
+
+-- SELECT fname, lname, age, email, pass FROM patients INNER JOIN appointment on appointment.patient_id=patients.pat_id WHERE patients.pat_id=1 OR appointment.employee_id=3;
+
+-- -- this lets me see all info patient from appointment table--
+-- SELECT fname, lname, age, email FROM patients INNER JOIN appointment on appointment.patient_id=patients.pat_id;
+-- -- this lets me see all info employee from appointment table--
+-- SELECT fname, lname, age, email FROM employees INNER JOIN appointment on appointment.employee_id=employees.emp_id;
+
+-- -- this lets me see the app id assigned to each employee--
+-- SELECT appointment.appt_id, employees.fname, employees.lname, employees.age, employees.email FROM employees INNER JOIN appointment on appointment.employee_id=employees.emp_id;
+
+-- -- this lets me see the patient info per appointment id 
+-- SELECT appointment.appt_id, patients.fname, patients.lname, patients.age, patients.email FROM patients INNER JOIN appointment on appointment.patient_id=patients.pat_id;
+
+-- --this lets me see the app_id's associated to a patient email(username)--
+-- SELECT appointment.appt_id, patients.fname, patients.lname, patients.age, patients.email FROM patients INNER JOIN appointment on appointment.patient_id=employees.pat_id where patients.email='elmo@patient';
+
+-- SELECT appointment.appt_id, employees.fname, employees.lname, employees.age, employees.email FROM employees INNER JOIN appointment on appointment.employee_id=employees.emp_id WHERE employees.email='patient@patient';

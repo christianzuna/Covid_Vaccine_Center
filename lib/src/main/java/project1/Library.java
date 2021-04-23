@@ -38,8 +38,9 @@ public class Library extends HttpServlet {
             pat = pDao.validate(userName, userPass);
 
             if (!pat.isEmpty()) {
-                RequestDispatcher rq = req.getRequestDispatcher("/ProfileP");
-                rq.forward(req, resp);
+                // RequestDispatcher rq = req.getRequestDispatcher("/ProfileP");
+                // rq.forward(req, resp);
+                resp.sendRedirect("/lib/homePage.html");
             } else {
                 resp.setContentType("text/html");
                 resp.getWriter().println("Sorry wrong username or password...");
@@ -51,8 +52,9 @@ public class Library extends HttpServlet {
             emp = eDao.validate(userName, userPass);
 
             if (!emp.isEmpty()) {
-                RequestDispatcher rq = req.getRequestDispatcher("/ProfileE");
-                rq.forward(req, resp);
+                // RequestDispatcher rq = req.getRequestDispatcher("/ProfileE");
+                // rq.forward(req, resp);
+                resp.sendRedirect("/lib/homePage.html");
             } else {
                 resp.setContentType("text/html");
                 resp.getWriter().println("Sorry wrong username or password...");

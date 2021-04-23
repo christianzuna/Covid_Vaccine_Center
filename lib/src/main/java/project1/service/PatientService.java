@@ -10,11 +10,10 @@ import javax.servlet.http.*;
 public class PatientService extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        resp.getWriter().println("Welcome to the ProfileP, this is the PatientService servlet doing a doPost!");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = req.getParameter("userName");
         String userPass = req.getParameter("userPass");
 
+        
     }
 }

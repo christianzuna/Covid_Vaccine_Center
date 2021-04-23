@@ -3,6 +3,7 @@ package project1;
 import jdk.jfr.Percentage;
 import project1.model.Employee;
 import project1.model.Patient;
+import project1.repository.AppointmentDao;
 import project1.repository.EmployeeDao;
 import project1.repository.PatientDao;
 
@@ -36,16 +37,18 @@ class LibraryTest {
         LibraryTest obj = new LibraryTest(); 
         String bro = "bro@patient";
 
-        obj.isEmpOrPat(bro);
+        // obj.isEmpOrPat(bro);
 
-         
+        AppointmentDao aDao = new AppointmentDao(); 
+        
+        // System.out.println(aDao.getAllAppts());
+        
     }
 
     public void isEmpOrPat (String userName) {
         String temp = userName.substring(userName.length()-7, userName.length()); 
          
         System.out.println(temp.equals("patient")); 
-        // System.out.println(temp);
-         return; 
-     }
+        return; 
+    }
 }

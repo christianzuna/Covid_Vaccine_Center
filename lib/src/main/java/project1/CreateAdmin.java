@@ -36,7 +36,8 @@ public class CreateAdmin extends HttpServlet {
         eDao.insert(new Employee(userFname, userLname, userAge, userName, userPass));
 
         resp.setContentType("text/html");
-        resp.getWriter().println("hi there, this is the CreateEmployee Servlet doing a doPost!");
+        // resp.getWriter().println("hi there, this is the CreateEmployee Servlet doing a doPost!");
+        resp.getWriter().println("<h2>Information Successfully Submitted!</h2>");
 
         RequestDispatcher rq = req.getRequestDispatcher("/index.html");
         rq.include(req, resp);

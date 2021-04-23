@@ -2,7 +2,6 @@ package project1.model;
 
 public class Employee {
     private int id; 
-    
     private String fname; 
     private String lname; 
     private int age; 
