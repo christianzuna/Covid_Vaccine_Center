@@ -44,4 +44,17 @@ public class EmployeeService extends HttpServlet{
         // resp.getWriter().println(jsonStringEmp);
         // resp.getWriter().println(jsonStringAppt);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String fname = req.getParameter("fname");
+        String lname = req.getParameter("lname");
+        String age = req.getParameter("age"); 
+        String username = req.getParameter("username");
+        String password = req.getParameter("password"); 
+
+        PatientDao pDao = new PatientDao(); 
+        pDao.insert(new Patient(fname, lname, Integer.parseInt(age), username, password));
+        resp.sendRedirect("/lib/adminHomePage.html"); 
+    }
 }
