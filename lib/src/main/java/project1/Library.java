@@ -40,7 +40,7 @@ public class Library extends HttpServlet {
             if (!pat.isEmpty()) {
                 // RequestDispatcher rq = req.getRequestDispatcher("/ProfileP");
                 // rq.forward(req, resp);
-                resp.sendRedirect("/lib/homePage.html");
+                resp.sendRedirect("/lib/userHomePage.html");
             } else {
                 resp.setContentType("text/html");
                 resp.getWriter().println("Sorry wrong username or password...");
@@ -54,7 +54,7 @@ public class Library extends HttpServlet {
             if (!emp.isEmpty()) {
                 // RequestDispatcher rq = req.getRequestDispatcher("/ProfileE");
                 // rq.forward(req, resp);
-                resp.sendRedirect("/lib/homePage.html");
+                resp.sendRedirect("/lib/adminHomePage.html");
             } else {
                 resp.setContentType("text/html");
                 resp.getWriter().println("Sorry wrong username or password...");
