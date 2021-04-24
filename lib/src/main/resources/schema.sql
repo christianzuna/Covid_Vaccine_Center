@@ -23,14 +23,18 @@ CREATE TABLE appointment (
 );
 
 INSERT INTO employees (fname, lname, age, email, pass) VALUES ('employee', 'employee', 12, 'employee@employee', 'employee');
-INSERT INTO employees (fname, lname, age, email, pass) VALUES ('admin', 'admin', 0, 'admin@employee', 'employee');
+INSERT INTO employees (fname, lname, age, email, pass) VALUES ('admin', 'admin', 50, 'admin@employee', 'employee');
 INSERT INTO employees (fname, lname, age, email, pass) VALUES ('rodolfo', 'largo', 22, 'rod@employee', 'rod');
 INSERT INTO employees (fname, lname, age, email, pass) VALUES ('juan', 'mendes', 22, 'juan@employee', 'juan');
+INSERT INTO employees (fname, lname, age, email, pass) VALUES ('bob', 'simpson', 22, 'bob@employee', 'bob');
+INSERT INTO employees (fname, lname, age, email, pass) VALUES ('tom', 'parker', 22, 'tom@employee', 'tom');
 
 INSERT INTO patients (fname, lname, age, email, pass) VALUES ('patient', 'patient', 0, 'patient@patient', 'patient');
-INSERT INTO patients (fname, lname, age, email, pass) VALUES ('elmo', 'pat', 20, 'elmo@patient', 'elmo');
-INSERT INTO patients (fname, lname, age, email, pass) VALUES ('jess', 'daniels', 20, 'jess@patient', 'jess');
-INSERT INTO patients (fname, lname, age, email, pass) VALUES ('elena', 'garcia', 30, 'elena@patient', 'elena');
+INSERT INTO patients (fname, lname, age, email, pass) VALUES ('elmo', 'elmo', 20, 'elmo@patient', 'elmo');
+INSERT INTO patients (fname, lname, age, email, pass) VALUES ('daniel', 'smith', 20, 'daniel@patient', 'daniel');
+INSERT INTO patients (fname, lname, age, email, pass) VALUES ('Justin', 'Beiber', 30, 'justin@patient', 'justin');
+INSERT INTO patients (fname, lname, age, email, pass) VALUES ('fred', 'barker', 30, 'fred@patient', 'fred');
+INSERT INTO patients (fname, lname, age, email, pass) VALUES ('frank', 'brayant', 30, 'frank@patient', 'frank');
 
 INSERT INTO appointment (patient_id, employee_id) VALUES (1,1);
 INSERT INTO appointment (patient_id, employee_id) VALUES (1,2);

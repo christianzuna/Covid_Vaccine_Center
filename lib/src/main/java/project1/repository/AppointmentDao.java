@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import project1.model.Appointment;
-import project1.model.Patient;
 
 public class AppointmentDao {
 
@@ -25,11 +24,11 @@ public class AppointmentDao {
         try {
             connection = DriverManager.getConnection(url, user, password);
             PreparedStatement preparedStatement = connection.prepareStatement(
-                "SELECT appointment.appt_id, patients.fname, patients.lname, patients.age, patients.email FROM patients INNER JOIN appointment on appointment.patient_id=patients.pat_id;");
+                    "SELECT * FROM appointment;");
 
             ResultSet rSet = preparedStatement.executeQuery();
             while (rSet.next()) {
-                Appointment temp = new Appointment(rSet.getInt("appt_id"), rSet.getString("fname"), rSet.getString("lname"), rSet.getInt("age"), rSet.getString("email"));
+                Appointment temp = new Appointment(rSet.getInt("appt_id"), rSet.getInt("patient_id"), rSet.getInt("employee_id"));
                 list.add(temp);
             }
         } catch (SQLException e1) {
@@ -38,21 +37,21 @@ public class AppointmentDao {
         return list;
     }
 
-    //searching by patient email
-    public List<Appointment> searchApptByPat(String userName) {
+    //searching by patient_id
+    public List<Appointment> searchApptByPat(int patient_id) {
         List<Appointment> list = new ArrayList<>();
         Connection connection;
         try {
             connection = DriverManager.getConnection(url, user, password);
             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "SELECT appointment.appt_id, patients.fname, patients.lname, patients.age, patients.email FROM patients INNER JOIN appointment on appointment.patient_id=patients.pat_id where patients.email=?;",
+                    "SELECT * FROM appointment WHERE patient_id=?;",
                     Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, patient_id);
 
-            preparedStatement.setString(1, userName);
             ResultSet rSet = preparedStatement.executeQuery();
 
             while (rSet.next()) {
-                Appointment temp = new Appointment(rSet.getInt("appt_id"), rSet.getString("fname"), rSet.getString("lname"), rSet.getInt("age"), rSet.getString("email"));
+                Appointment temp = new Appointment(rSet.getInt("appt_id"), rSet.getInt("patient_id"), rSet.getInt("employee_id"));
                 list.add(temp);
             }
 
@@ -62,20 +61,21 @@ public class AppointmentDao {
         return list;
     }
 
-    public List<Appointment> searchApptbyEmp(String userName) {
+// search appointment by employee_id
+    public List<Appointment> searchApptbyEmp(int employee_id) {
         List<Appointment> list = new ArrayList<>();
         Connection connection;
         try {
             connection = DriverManager.getConnection(url, user, password);
             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "SELECT appointment.appt_id, patients.fname, patients.lname, patients.age, patients.email FROM patients INNER JOIN appointment on appointment.patient_id=patients.pat_id where patients.email=?;",
+                    "SELECT * FROM appointment WHERE employee_id=?",
                     Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, employee_id);
 
-            preparedStatement.setString(1, userName);
             ResultSet rSet = preparedStatement.executeQuery();
 
             while (rSet.next()) {
-                Appointment temp = new Appointment(rSet.getInt("appt_id"), rSet.getString("fname"), rSet.getString("lname"), rSet.getInt("age"), rSet.getString("email"));
+                Appointment temp = new Appointment(rSet.getInt("appt_id"), rSet.getInt("patient_id"), rSet.getInt("employee_id"));
                 list.add(temp);
             }
 

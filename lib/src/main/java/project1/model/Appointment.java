@@ -2,21 +2,14 @@ package project1.model;
 
 public class Appointment {
     private int appt_id; 
-    private String fname; 
-    private String lname; 
-    private int age; 
-    private String email;
+    private int patient_id; 
+    private int employee_id;
 
-
-    
-    public Appointment(int appt_id, String fname, String lname, int age, String email) {
+    public Appointment(int appt_id, int patient_id, int employee_id) {
         this.appt_id = appt_id;
-        this.fname = fname;
-        this.lname = lname;
-        this.age = age;
-        this.email = email;
+        this.patient_id = patient_id;
+        this.employee_id = employee_id;
     }
-
 
 
     public int getAppt_id() {
@@ -31,58 +24,35 @@ public class Appointment {
 
 
 
-    public String getFname() {
-        return fname;
+    public int getPatient_id() {
+        return patient_id;
     }
 
 
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setPatient_id(int patient_id) {
+        this.patient_id = patient_id;
     }
 
 
 
-    public String getLname() {
-        return lname;
+    public int getEmployee_id() {
+        return employee_id;
     }
 
 
 
-    public void setLname(String lname) {
-        this.lname = lname;
-    }
-
-
-
-    public int getAge() {
-        return age;
-    }
-
-
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-
-
-    public String getEmail() {
-        return email;
-    }
-
-
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmployee_id(int employee_id) {
+        this.employee_id = employee_id;
     }
 
 
 
     @Override
     public String toString() {
-        return "Appointment: " + appt_id + ", " + fname + ", " + lname + ", " + age + ", " + email;
+        return "Appointment [appt_id=" + appt_id + ", employee_id=" + employee_id + ", patient_id=" + patient_id + "]";
     } 
+
 
     
 }

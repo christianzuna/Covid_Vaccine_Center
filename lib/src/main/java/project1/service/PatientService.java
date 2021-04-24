@@ -14,6 +14,7 @@ public class PatientService extends HttpServlet {
         String userName = req.getParameter("userName");
         String userPass = req.getParameter("userPass");
 
-        
+        resp.getWriter().println("Username is: " + userName);
+        resp.getWriter().println("Password is: " + userPass);
     }
 }
