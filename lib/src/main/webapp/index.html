@@ -1,32 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Welcome Page</title>
 </head>
+
 <body>
-    <h1>Welcome to Covid Center app</h1>
-    <div>
-        <h2>Please Login</h2>
-        <div>
-            <form action="Login" method="POST">
-                <p>Use the respective username for patient or employee. For Example: "bro@patient" if patient or "bro@employee" if employee</p>
-                Email: <input type="text" name="userName">
-                <br>
-                Password: <input type="password" name="userPass">
-                <br>
-                <p>
-                    <button type="submit">Submit</button>
-                </p>
-            </form>
+    <div class="card">
+        <div class="card-header text-center text-light bg-dark">
+            <h1>Welcome to Covid Center app</h1>
         </div>
-        <br>
-<!-- here I redirect the user to create an account         -->
-        <div>
-            <a href="/lib/createUser.html">Create User</a>
+
+        <div class="card-body">
+            <div class="text-center">
+                <h2>Please Login</h2>
+            </div>
+            <div>
+                <p class="card-title text-center">Use the respective username for patient or employee. For Example:
+                    "jon@patient" if patient or "jon@employee" if employee</p>
+
+                <form action="Login" method="POST">
+                    <br>
+                    <div class="container">
+                        <label for="exampleFormControlInput1" class="form-label">
+                            <p class="text-center">Username</p>
+                        </label>
+                        <input type="text" name="userName" class="form-control" placeholder="@patient or @employee">
+                    </div>
+                    <br>
+                    <div class="container">
+                        <label for="exampleFormControlInput1" class="form-label">
+                            <p class="text-center">Password</p>
+                        </label>
+                        <input type="password" class="form-control" name="userPass">
+                        <br>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <!-- here I redirect the user to create an account         -->
         </div>
+        <div class="card-footer text-center bg-dark">
+            <div class="text-light">To request a vaccine, please create an account.</div>
+            <br>
+            <a href="/lib/createUser.html" class="btn btn-secondary">Create User</a>
+        </div>
+
     </div>
+    <script src="js/bootstrap.min.js"></script>
 </body>
+
 </html>

@@ -1,54 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Home Page</title>
 </head>
+
 <body>
-    <div>
-        <h1>Home Page</h1>
-        <div>
-            <form action="Logout" method="post">
-            <button type="submit">Logout</button>
+    <div class="card">
+        <div class="card-header">
+            <h1 class="text-center text-light bg-dark">Home Page</h1>
+            <form action="Logout" method="post" class="text-center">
+                <button type="submit" class="btn btn-secondary">Logout</button>
             </form>
         </div>
+        <section id="inputtingNewPatient" class="card-body">
+            <div class="container text-center">
+                <div class="card">
+                    <p class="card-header">Please, enter a new vaccine request here</p>
+                    <form action="ProfileE" method="post">
+                        <label for="exampleFormControlInput1" class="from-label">First Name: </label>
+                        <br>
+                        <input type="text" name="fname">
+                        <br>
+                        <label for="">Last Name: </label>
+                        <br>
+                        <input type="text" name="lname">
+                        <br>
+                        <label for="">Age: </label>
+                        <br>
+                        <input type="number" name="age">
+                        <br>
+                        <label for="">Create a username: </label>
+                        <br>
+                        <input type="email" name="username" placeholder="john@patient">
+                        <br>
+                        <label for="">Create Password: </label>
+                        <br>
+                        <input type="password" name="password">
+                        <br>
+                        <div class="m-4">
+                            <button type="submit" class="btn btn-success">Submit Request Info</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <div class="card-footer text-center">Please see below for new entries in our patients table</div>
     </div>
-<br>
-<div id="container">
-    <table>
-        <thead>
-            <tr>
-                <th>Patient ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-                <th>Username</th>
-            </tr>
-        </thead>
-        <tbody id="data">
+    <br>
+    <div class="card-group">
+        <div class="card">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Patient ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Username</th>
+                    </tr>
+                </thead>
+                <tbody id="patientsData">
 
-        </tbody>
-    </table>
-</div>
-<!-- I will use this section below to add new patients manually -->
-<div>
-    <p>Please, enter new vaccine request here</p>
-    <form action="ProfileE" method="post">
-        First Name: <input type="text" name="fname">
-        <br>
-        Last Name: <input type="text" name="lname">
-        <br>
-        Age: <input type="number" name="age">
-        <br>
-        Create a username: <input type="email" name="username" placeholder="john@patient">
-        <br>
-        Create a password: <input type="password" name="password">
-        <br>
-        <button type="submit">Submit Request Info</button>
-    </form>
-</div>
+                </tbody>
+            </table>
+            <div class="card-footer">
+
+            </div>
+        </div>
+        <div class="card">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Employee ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Username</th>
+                    </tr>
+                </thead>
+                <tbody id="employeesData">
+
+                </tbody>
+            </table>
+            <div class="card-footer">
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
     <script src="admin.js"></script>
+    <script src="user.js"></script>
 </body>
+
 </html>

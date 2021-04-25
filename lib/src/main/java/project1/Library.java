@@ -43,7 +43,7 @@ public class Library extends HttpServlet {
                 resp.sendRedirect("/lib/userHomePage.html");
             } else {
                 resp.setContentType("text/html");
-                resp.getWriter().println("Sorry wrong username or password...");
+                resp.getWriter().println("<h2 class='text-center'>Sorry wrong username or password...</h2>");
                 RequestDispatcher rq = req.getRequestDispatcher("/index.html");
                 rq.include(req, resp);
             }
@@ -57,13 +57,13 @@ public class Library extends HttpServlet {
                 resp.sendRedirect("/lib/adminHomePage.html");
             } else {
                 resp.setContentType("text/html");
-                resp.getWriter().println("Sorry wrong username or password...");
+                resp.getWriter().println("<h2 class='text-center'>Sorry wrong username or password...</h2>");
                 RequestDispatcher rq = req.getRequestDispatcher("/index.html");
                 rq.include(req, resp);
             }
         } else {
             resp.setContentType("text/html");
-            resp.getWriter().println("Sorry wrong username or password...");
+            resp.getWriter().println("<h2 class='text-center'>Sorry wrong username or password...</h2>");
             RequestDispatcher rq = req.getRequestDispatcher("/index.html");
             rq.include(req, resp);
         }

@@ -23,11 +23,11 @@ public class CreateUser extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PatientDao pDao = new PatientDao();
         
-        String userFname = req.getParameter("userFname");
-        String userLname = req.getParameter("userLname");
-        int userAge = Integer.parseInt(req.getParameter("userAge"));
-        String userName = req.getParameter("userName");
-        String userPass = req.getParameter("userPass");
+        String userFname = req.getParameter("fname");
+        String userLname = req.getParameter("lname");
+        int userAge = Integer.parseInt(req.getParameter("age"));
+        String userName = req.getParameter("username");
+        String userPass = req.getParameter("password");
 
         pDao.insert(new Patient(userFname, userLname, userAge, userName, userPass));
 

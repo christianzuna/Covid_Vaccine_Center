@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Create User</title>
 </head>
 <body>
-
-    <!-- i'll send this to a servlet so it saves it in my jdbc | preferably a patient-->
-    <div> 
-        <p>
-            <h1>Create an Account to Request your Vaccine</h1>
-        </p>
-        <form action="CreatePatient" method="POST">
-            First Name: <input type="text" name="userFname">
-            <br>
-            Last Name: <input type="text" name="userLname">
-            <br>
-            Age: <input type="number" name="userAge">
-            <br>
-            Email: <input type="text" name="userName" placeholder="@patient">
-            <br>
-            Set Password: <input type="password" name="userPass">
-            <p>
-                <button type="submit">Submit</button>
-            </p>
-        </form>
+    <div class="card"> 
+        <div class="card-header">
+            <h1 class="text-center text-light bg-dark">Home Page</h1>
+        </div>
+        <section id="inputtingNewPatient" class="card-body">
+            <div class="container text-center">
+                <div class="card">
+                    <p class="card-header">Please, enter a new vaccine request here</p>
+                    <form action="CreatePatient" method="post">
+                        <label for="exampleFormControlInput1" class="from-label">First Name: </label>
+                        <br>
+                        <input type="text" name="fname">
+                        <br>
+                        <label for="">Last Name: </label>
+                        <br>
+                        <input type="text" name="lname">
+                        <br>
+                        <label for="">Age: </label>
+                        <br>
+                        <input type="number" name="age">
+                        <br>
+                        <label for="">Create a username: </label>
+                        <br>
+                        <input type="email" name="username" placeholder="john@patient">
+                        <br>
+                        <label for="">Create Password: </label>
+                        <br>
+                        <input type="password" name="password">
+                        <br>
+                        <div class="m-4">
+                            <button type="submit" class="btn btn-primary">Submit Request Info</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <div class="card-footer text-center text-light bg-dark">
+            <a href="/lib/createAdmin.html" class="btn btn-secondary">I am a new Employee</a>
+        </div>
     </div>
-
-    <!-- this will help me create a new Employee -->
-    <div>
-        <h2><a href="/lib/createAdmin.html">I am a new Employee</a></h2>
-    </div>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
