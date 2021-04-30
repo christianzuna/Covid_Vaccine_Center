@@ -1,6 +1,9 @@
 # Covid_Vaccine_Center
 My project 1 - Covid Vaccine Center 
 
+<img width="847" alt="Screen Shot 2021-04-30 at 9 15 50 AM" src="https://user-images.githubusercontent.com/81255881/116703449-4bfe1d00-a998-11eb-89e2-e84a37c21e09.png">
+
+
 A web application for requesting a covid vaccine. 
 
 ## User Features
@@ -14,6 +17,13 @@ A web application for requesting a covid vaccine.
 - [X] After Loggin in as a Patient, the user can see the available employees who will help them get their vaccine
 - [X] After Loggin in as an Employee, the user can see a list of employees and also create Patient accounts
 
+## Employee Home Page
+<img width="1438" alt="Screen Shot 2021-04-30 at 9 40 38 AM" src="https://user-images.githubusercontent.com/81255881/116703732-97b0c680-a998-11eb-8f0a-e269b58d0482.png">
+
+## Patient (vaccine requester) Home Page
+<img width="1043" alt="Screen Shot 2021-04-30 at 9 46 04 AM" src="https://user-images.githubusercontent.com/81255881/116704007-ebbbab00-a998-11eb-8584-82a4038b86f9.png">
+
+
 ## Tools & APIs
 - Java SE 8
 - Gradle
@@ -25,7 +35,7 @@ A web application for requesting a covid vaccine.
 - Docker
 - Bootstrap
 
-##Functionality
+## Functionality
 - CRUD - Create, Read, Update, Delete
 - Web App dashboard interface
 - Login - Authentication & Authorization
