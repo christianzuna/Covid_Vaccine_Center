@@ -19,16 +19,14 @@ public class PatientService extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EmployeeDao eDao = new EmployeeDao(); 
-
         List<Employee> emp = new ArrayList<>(); 
-        
         emp = eDao.getAll(); 
 
         ObjectMapper mapper = new ObjectMapper(); 
-
         String jsonStringEmp = mapper.writeValueAsString(emp);
 
         resp.setContentType("application/json");
-        resp.getWriter().println(jsonStringEmp);
+        resp.getWriter().println(jsonStringEmp); 
+        //this will create an RESTful API in JSON data which will be consumed in the frontend by JS axios/fetch calls 
     }
 }

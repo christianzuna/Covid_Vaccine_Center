@@ -32,9 +32,9 @@ public class CreateUser extends HttpServlet {
         pDao.insert(new Patient(userFname, userLname, userAge, userName, userPass));
 
         resp.setContentType("text/html");
-        // resp.getWriter().println("this is the CreatePatient servlet, doing a doPost from the CreateUser.java!");
         resp.getWriter().println("<h2>Information Successfully Submitted!</h2>");
 
+        //this will redirect me to the main webpage
         RequestDispatcher rq = req.getRequestDispatcher("/index.html");
         rq.include(req, resp);
     }
