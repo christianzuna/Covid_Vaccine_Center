@@ -13,8 +13,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import project1.model.Appointment;
 import project1.model.Employee;
 import project1.model.Patient;
-import project1.repository.AppointmentDao;
-import project1.repository.EmployeeDao;
 import project1.repository.PatientDao;
 
 @WebServlet("/ProfileE")
@@ -26,8 +24,8 @@ public class EmployeeService extends HttpServlet{
         // EmployeeDao eDao = new EmployeeDao(); 
         PatientDao pDao = new PatientDao();
 
-        List<Appointment> appt = new ArrayList<>();
-        List<Employee> emp = new ArrayList<>(); 
+        // List<Appointment> appt = new ArrayList<>();
+        // List<Employee> emp = new ArrayList<>(); 
         List<Patient> pat = new ArrayList<>();
         
         // appt = apptDao.getAllAppts(); 
